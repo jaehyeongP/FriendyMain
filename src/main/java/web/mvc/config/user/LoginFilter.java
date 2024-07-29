@@ -76,19 +76,17 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String role = auth.getAuthority(); // ROLE_USER OR ROLE_ADMIN 저장한 ROLL이 나온다
 
         // 토큰 생성과정... 토큰 만료시간 1시간으로 설정 3600 * 1000ㅣ
-        String token = jwtUtil.createJwt(customMemberDetails.getUsers(), role, 3600*1000L); //시간 설정 MS 1000L = 1초 , 1000L * 60 = 1분
+        String token = jwtUtil.createJwt(customMemberDetails.getUsers(), role, 3600*10000L); //시간 설정 MS 1000L = 1초 , 1000L * 60 = 1분
 
         // 응답할 헤더 설정
         response.addHeader("Authorization", "Bearer " + token);
 
         Map<String, Object> map = new HashMap<>();
         Users users= customMemberDetails.getUsers();
-
         map.put("userId",users.getUserId() );
         map.put("userName",users.getUserName() );
         map.put("userSeq",users.getUserSeq() );
-        
-
+        map.put("userJelly" ,users.getUserDetail().getUserJelly());
 
         Gson gson= new Gson();
 
