@@ -31,14 +31,6 @@ public class AddressController {
         String countPerPage = String.valueOf(addressRequest.getCountPerPage());
         String resultType = addressRequest.getResultType();
         String keyword = addressRequest.getKeyword();
-
-        System.out.println("Received parameters:");
-        System.out.println("currentPage: " + currentPage);
-        System.out.println("countPerPage: " + countPerPage);
-        System.out.println("resultType: " + resultType);
-        System.out.println("keyword: " + keyword);
-        System.out.println("addressKey: " + addressKey);
-
         // OPEN API 호출 URL 정보 설정
         String apiUrl = "https://business.juso.go.kr/addrlink/addrLinkApi.do?currentPage=" + currentPage +
                 "&countPerPage=" + countPerPage +

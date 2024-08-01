@@ -126,8 +126,6 @@ public class AdminReportServiceImpl implements AdminReportService {
         String message = message1 + receiver.getNickName() + message2;
 
         notificationService.addNotification(sender, message);
-        System.out.println("@@@@@@!@#!$message = " + message);
-        System.out.println("@@@@@@!@#!sender = " + sender.getUserId());
 
         return updatedReportDTO;
     }

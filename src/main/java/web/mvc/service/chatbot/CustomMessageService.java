@@ -26,8 +26,7 @@ public class CustomMessageService {
         myMsg.setLink(link);
 
         String accessToken = AuthService.authToken;
-        System.out.println("CustomMessageService myMsg = " + myMsg);
-        System.out.println("CustomMessageService   accessToken  = " + accessToken);
+
         return messageService.sendMessage(accessToken, myMsg);
     }
 }
